@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="TRY 5.css  ">
+</head>
+<body>
+
+    <div class="container">
+        <input type="text" placeholder="0" id="inputbox" readonly>
+    <div class="number">
+        <button type="button" class="operator">AC</button>
+        <button type="button" class="operator">/</button>
+        <button type="button" class="operator">x</button>
+        <button type="button" class="operator">DEL</button>
+    </div>
+    <div class="number">
+        <button type="button">7</button>
+        <button type="button">8</button>
+        <button type="button">9</button>
+        <button type="button" class="operator">-</button>
+    </div>
+    <div class="number">
+        <button type="button">4</button>
+        <button type="button">5</button>
+        <button type="button">6</button>
+        <button type="button" class="operator">+</button>
+    </div>
+    <div class="number">
+        <button type="button">1</button>
+        <button type="button">2</button>
+        <button type="button">3</button>
+        <button type="button" class="operator">CC</button>
+    </div>
+    <div class="number">
+        <button type="button">%</button>
+        <button type="button">0</button>
+        <button type="button">.</button>
+        <button type="button" class="operator">=</button>
+    </div>
+    
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let input = document.getElementById('inputbox');
+            let buttons = document.querySelectorAll('button');
+
+            let string = "";
+
+            buttons.forEach(button => {
+                button.addEventListener('click', (d) => {
+                    if (d.target.innerHTML === '=') {
+                        string = "miss na kita";
+                        input.value = string;
+                    } else if (d.target.innerHTML === 'AC') {
+                        string = "";
+                        input.value = string;
+                    } else if (d.target.innerHTML === 'DEL') {
+                        string = string.substring(0, string.length - 1);
+                        input.value = string
+                    } else if (d.target.innerHTML === 'CC') {
+                        string = "";
+                        input.value = string;
+                    }else {
+                        string += d.target.innerHTML;
+                        input.value = string;
+                    }
+                });
+            });
+        })
+    </script>
+    
+</body>
+</html>
